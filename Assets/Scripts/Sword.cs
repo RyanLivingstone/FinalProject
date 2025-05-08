@@ -20,7 +20,7 @@ public class Sword : MonoBehaviour
         isPickedUp = true;
 
         transform.SetParent(holdPoint); 
-        transform.localPosition = Vector3.zero;
+        transform.localPosition = new Vector2(1, 0);
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)

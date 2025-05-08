@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: dd698f04580efcd44ad51e55ca2aab39
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - musicSource: {instanceID: 0}
+  - SFXSource: {instanceID: 0}
+  - EnemyDeath: {instanceID: 0}
+  - EnemyMovement: {instanceID: 0}
+  - SwordSound: {instanceID: 0}
+  - ItemPickup: {instanceID: 0}
+  - HeroDeath: {instanceID: 0}
+  - GameplayMusic: {instanceID: 0}
+  - IntroOutro: {fileID: 8300000, guid: 18cb87774a1529f4eb0b710c50f9218b, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
