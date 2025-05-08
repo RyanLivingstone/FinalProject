@@ -10,20 +10,19 @@ public class Potion : MonoBehaviour
         // Press P to pick up
         if (Input.GetKeyDown(KeyCode.P) && heldPotion == null)
         {
-            Collider[] hits = Physics.OverlapSphere(transform.position, 2f);
-            foreach (Collider hit in hits)
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 2f);
+            foreach (Collider2D hit in hits)
             {
                 if (hit.CompareTag("Potion"))
-                {       
+                {
                     heldPotion = hit.gameObject;
 
-                    Rigidbody rb = heldPotion.GetComponent<Rigidbody>();
+                    Rigidbody2D rb = heldPotion.GetComponent<Rigidbody2D>();
                     if (rb != null)
                     {
-                        rb.linearVelocity = Vector3.zero;
-                        rb.angularVelocity = Vector3.zero;
-                        rb.useGravity = false;
-                        rb.isKinematic = true;
+                        rb.linearVelocity = Vector2.zero;
+                        rb.angularVelocity = 0f;
+                        rb.bodyType = RigidbodyType2D.Kinematic;
                     }
 
                     heldPotion.transform.SetParent(holdPoint);
@@ -43,19 +42,16 @@ public class Potion : MonoBehaviour
         {
             heldPotion.transform.SetParent(null);
 
-            Rigidbody rb = heldPotion.GetComponent<Rigidbody>();
+            Rigidbody2D rb = heldPotion.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                rb.isKinematic = false;
-                rb.useGravity = true;
-                rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+                rb.bodyType = RigidbodyType2D.Dynamic;
 
-                Vector3 throwDir = transform.forward;
-                throwDir.y = 0;
+                Vector2 throwDir = transform.right;
                 throwDir.Normalize();
 
-                rb.linearVelocity = Vector3.zero;
-                rb.AddForce(throwDir * 10f + Vector3.up * 2f, ForceMode.Impulse);
+                rb.linearVelocity = Vector2.zero;
+                rb.AddForce(throwDir * 10f + Vector2.up * 2f, ForceMode2D.Impulse);
             }
 
             heldPotion.GetComponent<PotionCollision>().SetActivated(true);

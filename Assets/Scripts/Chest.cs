@@ -4,7 +4,7 @@ public class Chest : MonoBehaviour
 {
     public GameObject[] possibleLoot;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Chest triggered by: " + other.name);
 
@@ -15,7 +15,7 @@ public class Chest : MonoBehaviour
             PlayerInventory playerInventory = other.GetComponent<PlayerInventory>();
             if (playerInventory != null)
             {
-                Debug.Log("PlayerInventory found. Has key? " + playerInventory.hasKey); 
+                Debug.Log("PlayerInventory found. Has key? " + playerInventory.hasKey);
 
                 if (playerInventory.hasKey)
                 {
@@ -37,13 +37,10 @@ public class Chest : MonoBehaviour
     private void OpenChest()
     {
         Debug.Log("Opening chest...");
-            int randomIndex = Random.Range(0, possibleLoot.Length);
-            Instantiate(possibleLoot[randomIndex], transform.position, Quaternion.identity);
-            Debug.Log("Loot spawned!");
+        int randomIndex = Random.Range(0, possibleLoot.Length);
+        Instantiate(possibleLoot[randomIndex], transform.position, Quaternion.identity);
+        Debug.Log("Loot spawned!");
 
-            Destroy(gameObject);
-        }
-
+        Destroy(gameObject);
     }
-
-
+}
