@@ -13,13 +13,13 @@ public class Sword : MonoBehaviour
         }
     }
 
-    public Transform swordHoldPoint;
+    public Transform holdPoint;
 
     private void PickupSword(Collider2D playerCollider)
     {
         isPickedUp = true;
 
-        transform.SetParent(swordHoldPoint); 
+        transform.SetParent(holdPoint); 
         transform.localPosition = Vector3.zero;
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
