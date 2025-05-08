@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9306c606d954423ea154f6431e6efae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: start banner
 --- !u!61 &3539618549990293761
 BoxCollider2D:
   m_ObjectHideFlags: 0
