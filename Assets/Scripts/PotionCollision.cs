@@ -11,11 +11,6 @@ public class PotionCollision : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-            return;
-
-        Debug.Log("Potion hit: " + collision.gameObject.name);
-
         if (!activated) return;
 
         if (collision.gameObject.CompareTag("Enemy"))

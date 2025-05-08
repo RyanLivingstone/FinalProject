@@ -3,7 +3,6 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
     public GameObject[] possibleLoot;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Chest triggered by: " + other.name);
@@ -37,9 +36,17 @@ public class Chest : MonoBehaviour
     private void OpenChest()
     {
         Debug.Log("Opening chest...");
-        int randomIndex = Random.Range(0, possibleLoot.Length);
-        Instantiate(possibleLoot[randomIndex], transform.position, Quaternion.identity);
-        Debug.Log("Loot spawned!");
+        
+        if (possibleLoot.Length > 0)
+        {
+            int randomIndex = Random.Range(0, possibleLoot.Length);
+            GameObject loot = Instantiate(possibleLoot[randomIndex], transform.position, Quaternion.identity);
+            Debug.Log("Loot spawned: " + loot.name);
+        }
+        else
+        {
+            Debug.LogWarning("No possible loot available!");
+        }
 
         Destroy(gameObject);
     }
