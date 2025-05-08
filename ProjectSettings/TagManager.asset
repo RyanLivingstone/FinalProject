@@ -8,6 +8,7 @@ TagManager:
   - Potion
   - Skull
   - Enemy
+  - Sword
   layers:
   - Default
   - TransparentFX
