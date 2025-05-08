@@ -6,12 +6,12 @@ MonoImporter:
   defaultReferences:
   - musicSource: {instanceID: 0}
   - SFXSource: {instanceID: 0}
-  - EnemyDeath: {instanceID: 0}
-  - EnemyMovement: {instanceID: 0}
-  - SwordSound: {instanceID: 0}
-  - ItemPickup: {instanceID: 0}
-  - HeroDeath: {instanceID: 0}
-  - GameplayMusic: {instanceID: 0}
+  - EnemyDeath: {fileID: 8300000, guid: a5ee6b6468ec36542b7eed9b446f2513, type: 3}
+  - EnemyMovement: {fileID: 8300000, guid: ba4d180c314fca04e89f61c921d43226, type: 3}
+  - SwordSound: {fileID: 8300000, guid: cea1b92eab81a564db245ffc6d02625e, type: 3}
+  - ItemPickup: {fileID: 8300000, guid: a9800651b5364054da399c410bbc51fb, type: 3}
+  - HeroDeath: {fileID: 8300000, guid: 5223ec1d0ece92544963368a87d47ee0, type: 3}
+  - GameplayMusic: {fileID: 8300000, guid: 2fad1adb2fa3bdb4b9b55a7e1a8835f1, type: 3}
   - IntroOutro: {fileID: 8300000, guid: 18cb87774a1529f4eb0b710c50f9218b, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}

@@ -5,12 +5,20 @@ TagManager:
   serializedVersion: 3
   tags:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - Audio
 =======
+=======
+>>>>>>> main
   - Ground
   - Potion
   - Skull
   - Enemy
+<<<<<<< HEAD
+>>>>>>> main
+=======
+  - Sword
+  - Audio
 >>>>>>> main
   layers:
   - Default
@@ -61,6 +69,9 @@ TagManager:
   m_RenderingLayers:
   - Default
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
   - Light Layer 1
   - Light Layer 2
   - Light Layer 3
@@ -68,5 +79,8 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
+<<<<<<< HEAD
+=======
+>>>>>>> main
 =======
 >>>>>>> main

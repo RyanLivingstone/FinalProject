@@ -1,16 +1,26 @@
+
 using UnityEngine;
+
 
 public class EnemyMovement : MonoBehaviour
 {
+
     private Transform target;
     public float speed;
     public float detectionRange = 10f;
+    AudioManager audioManager;
 
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        audioManager.PlaySFX(audioManager.EnemyMovement);
+
     }
 
     // Update is called once per frame

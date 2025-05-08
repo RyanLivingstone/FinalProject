@@ -3,8 +3,14 @@ using System.Collections.Generic;
 
 public class Sword : MonoBehaviour
 {
+    AudioManager audioManager;
     private bool isPickedUp = false;
     private Dictionary<GameObject, int> enemyHealth = new Dictionary<GameObject, int>();
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -19,6 +25,8 @@ public class Sword : MonoBehaviour
             if (!enemyHealth.ContainsKey(other.gameObject))
             {
                 enemyHealth[other.gameObject] = 3;
+                audioManager.PlaySFX(audioManager.SwordSound);
+
             }
 
             enemyHealth[other.gameObject]--;
@@ -28,6 +36,7 @@ public class Sword : MonoBehaviour
             {
                 Destroy(other.gameObject);
                 enemyHealth.Remove(other.gameObject);
+                audioManager.PlaySFX(audioManager.EnemyDeath);
             }
         }
     }
@@ -38,7 +47,7 @@ public class Sword : MonoBehaviour
         Debug.Log("Sword picked up");
 
         transform.SetParent(playerCollider.transform);
-        transform.localPosition = new Vector2(1, 0, 0);
+        transform.localPosition = new Vector3(1, 0, 0);
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)

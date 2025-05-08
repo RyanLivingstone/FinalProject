@@ -3,8 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
+    AudioManager audioManager;
     public int maxHealth = 10;
     public int currentHealth;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     private void Start()
     {
@@ -16,6 +22,7 @@ public class Health : MonoBehaviour
         if (other.CompareTag("Skull"))
         {
             Die();
+            audioManager.PlaySFX(audioManager.HeroDeath);
         }
 
         else if (other.CompareTag("Food"))

@@ -5,39 +5,35 @@ public class Potion : MonoBehaviour
     public Transform holdPoint;
     private GameObject heldPotion;
 
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        // Press P to pick up
-        if (Input.GetKeyDown(KeyCode.P) && heldPotion == null)
+        if (other.CompareTag("Player") && heldPotion == null)
         {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 2f);
-            foreach (Collider2D hit in hits)
+            Debug.Log("Potion picked up by player!");
+
+            heldPotion = gameObject;
+
+            Rigidbody2D rb = heldPotion.GetComponent<Rigidbody2D>();
+            if (rb != null)
             {
-                if (hit.CompareTag("Potion"))
-                {
-                    heldPotion = hit.gameObject;
+                rb.linearVelocity = Vector2.zero;
+                rb.angularVelocity = 0f; 
+                rb.bodyType = RigidbodyType2D.Kinematic;
+            }
 
-                    Rigidbody2D rb = heldPotion.GetComponent<Rigidbody2D>();
-                    if (rb != null)
-                    {
-                        rb.linearVelocity = Vector2.zero;
-                        rb.angularVelocity = 0f;
-                        rb.bodyType = RigidbodyType2D.Kinematic;
-                    }
+            heldPotion.transform.SetParent(holdPoint);
+            heldPotion.transform.localPosition = Vector3.zero;
 
-                    heldPotion.transform.SetParent(holdPoint);
-                    heldPotion.transform.localPosition = Vector3.zero;
-
-                    if (heldPotion.GetComponent<PotionCollision>() == null)
-                    {
-                        heldPotion.AddComponent<PotionCollision>().SetActivated(false);
-                    }
-                    break;
-                }
+            if (heldPotion.GetComponent<PotionCollision>() == null)
+            {
+                heldPotion.AddComponent<PotionCollision>().SetActivated(false);
             }
         }
+    }
 
-        // Press T to throw
+    // Press T to throw the potion
+    void Update()
+    {
         if (Input.GetKeyDown(KeyCode.T) && heldPotion != null)
         {
             heldPotion.transform.SetParent(null);
@@ -45,7 +41,7 @@ public class Potion : MonoBehaviour
             Rigidbody2D rb = heldPotion.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                rb.bodyType = RigidbodyType2D.Dynamic;
+                rb.bodyType = RigidbodyType2D.Dynamic; 
 
                 Vector2 throwDir = transform.right;
                 throwDir.Normalize();
