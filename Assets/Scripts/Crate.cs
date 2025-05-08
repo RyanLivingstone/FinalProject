@@ -5,7 +5,7 @@ public class Crate : MonoBehaviour
     public GameObject swordPrefab;
     public GameObject skullPrefab;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -24,4 +24,3 @@ public class Crate : MonoBehaviour
         Destroy(gameObject);
     }
 }
-

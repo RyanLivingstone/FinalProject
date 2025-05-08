@@ -9,7 +9,7 @@ public class PotionCollision : MonoBehaviour
         activated = value;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
             return;
@@ -27,4 +27,3 @@ public class PotionCollision : MonoBehaviour
         Destroy(gameObject);
     }
 }
-
