@@ -7,8 +7,12 @@ public class Inventory {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Inventory() {
         itemList = new List<Item>();
-        // AddItem(new Item { itemType = itemList.ItemType.GoldenKey, amount = 1});
-        // AddItem(new Item { itemType = Item.ItemType.})
+        AddItem(new Item { itemType = Item.ItemType.GoldenKey, amount = 1});
+        AddItem(new Item { itemType = Item.ItemType.Chest, amount = 1});
+        AddItem(new Item { itemType = Item.ItemType.Crate, amount = 1});
+        AddItem(new Item { itemType = Item.ItemType.Skull, amount = 1});
+        AddItem(new Item { itemType = Item.ItemType.Sword, amount = 1});
+        AddItem(new Item { itemType = Item.ItemType.Potion, amount = 1});
     }
 
     public void AddItem(Item item) {
