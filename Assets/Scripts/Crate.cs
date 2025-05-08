@@ -5,9 +5,10 @@ public class Crate : MonoBehaviour
     public GameObject swordPrefab;
     public GameObject skullPrefab;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        // Check if the player collided with the crate
+        if (collider.CompareTag("Player"))
         {
             SmashCrate();
         }
@@ -17,9 +18,24 @@ public class Crate : MonoBehaviour
     {
         Debug.Log("Crate smashed! Spawning item...");
 
+        if (swordPrefab == null || skullPrefab == null)
+        {
+            Debug.LogError("Sword or Skull prefab is not assigned in the Inspector!");
+            return;
+        }
+
         GameObject itemToSpawn = Random.value > 0.5f ? swordPrefab : skullPrefab;
 
-        Instantiate(itemToSpawn, transform.position + Vector3.up * 1.5f, Quaternion.identity);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            Instantiate(itemToSpawn, player.transform.position + Vector3.up * 1.5f, Quaternion.identity);
+            Debug.Log("Item spawned: " + itemToSpawn.name);
+        }
+        else
+        {
+            Debug.LogError("Player object not found");
+        }
 
         Destroy(gameObject);
     }

@@ -4,6 +4,11 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - Ground
+  - Potion
+  - Skull
+  - Enemy
+  - Sword
   - Audio
   layers:
   - Default

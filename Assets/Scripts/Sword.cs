@@ -38,7 +38,7 @@ public class Sword : MonoBehaviour
         Debug.Log("Sword picked up");
 
         transform.SetParent(playerCollider.transform);
-        transform.localPosition = new Vector2(1, 0);
+        transform.localPosition = new Vector3(1, 0, 0);
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
