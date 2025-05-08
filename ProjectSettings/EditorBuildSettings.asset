@@ -8,5 +8,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/start banner.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/ItemsScene.unity
+    guid: d1daa0a5922a66647bc62491ee155d94
+  - enabled: 1
+    path: Assets/Scenes/MainSceneGameplay.unity
+    guid: fc50ea7d4d4a4c24aa984d381c374eec
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
