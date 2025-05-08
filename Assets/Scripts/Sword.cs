@@ -6,7 +6,7 @@ public class Sword : MonoBehaviour
     private bool isPickedUp = false;
     private Dictionary<GameObject, int> enemyHealth = new Dictionary<GameObject, int>();
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Triggered with: " + other.gameObject.name);
 
@@ -20,11 +20,11 @@ public class Sword : MonoBehaviour
             {
                 enemyHealth[other.gameObject] = 3;
             }
-            enemyHealth[other.gameObject]--;
-            
-            Debug.Log($"Hit{other.gameObject.name}, Health Left: {enemyHealth[other.gameObject]}");
 
-            if (enemyHealth[other.gameObject] <=0)
+            enemyHealth[other.gameObject]--;
+            Debug.Log($"Hit {other.gameObject.name}, Health Left: {enemyHealth[other.gameObject]}");
+
+            if (enemyHealth[other.gameObject] <= 0)
             {
                 Destroy(other.gameObject);
                 enemyHealth.Remove(other.gameObject);
@@ -32,19 +32,18 @@ public class Sword : MonoBehaviour
         }
     }
 
-    private void PickupSword(Collider playerCollider)
+    private void PickupSword(Collider2D playerCollider)
     {
         isPickedUp = true;
         Debug.Log("Sword picked up");
 
         transform.SetParent(playerCollider.transform);
         transform.localPosition = new Vector3(1, 0, 0);
-        
-        Rigidbody rb = GetComponent<Rigidbody>();
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.isKinematic = true;
-            rb.useGravity = false;
+            rb.linearVelocity = Vector2.zero;
         }
     }
 }

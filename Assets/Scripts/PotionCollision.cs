@@ -9,13 +9,8 @@ public class PotionCollision : MonoBehaviour
         activated = value;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-            return;
-
-        Debug.Log("Potion hit: " + collision.gameObject.name);
-
         if (!activated) return;
 
         if (collision.gameObject.CompareTag("Enemy"))
@@ -27,4 +22,3 @@ public class PotionCollision : MonoBehaviour
         Destroy(gameObject);
     }
 }
-
