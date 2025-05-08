@@ -44,6 +44,7 @@ public class Sword : MonoBehaviour
         if (rb != null)
         {
             rb.linearVelocity = Vector2.zero;
+            rb.bodyType = RigidbodyType2D.Kinematic;
         }
     }
 }
