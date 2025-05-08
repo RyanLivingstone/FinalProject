@@ -1,31 +1,49 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Sword : MonoBehaviour
 {
-    public GameObject player;
     private bool isPickedUp = false;
+    private Dictionary<GameObject, int> enemyHealth = new Dictionary<GameObject, int>();
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collider.CompareTag("Player") && !isPickedUp)
+        Debug.Log("Triggered with: " + other.gameObject.name);
+
+        if (other.CompareTag("Player") && !isPickedUp)
         {
-            PickupSword(collider);
+            PickupSword(other);
+        }
+        else if (isPickedUp && other.CompareTag("Enemy"))
+        {
+            if (!enemyHealth.ContainsKey(other.gameObject))
+            {
+                enemyHealth[other.gameObject] = 3;
+            }
+
+            enemyHealth[other.gameObject]--;
+            Debug.Log($"Hit {other.gameObject.name}, Health Left: {enemyHealth[other.gameObject]}");
+
+            if (enemyHealth[other.gameObject] <= 0)
+            {
+                Destroy(other.gameObject);
+                enemyHealth.Remove(other.gameObject);
+            }
         }
     }
-
-    public Transform holdPoint;
 
     private void PickupSword(Collider2D playerCollider)
     {
         isPickedUp = true;
+        Debug.Log("Sword picked up");
 
-        transform.SetParent(holdPoint); 
-        transform.localPosition = new Vector2(1, 0);
+        transform.SetParent(playerCollider.transform);
+        transform.localPosition = new Vector3(1, 0, 0);
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.linearVelocity = Vector2.zero;
         }
     }
 }
