@@ -100,6 +100,11 @@ GameObject:
   - component: {fileID: 2577585254963922479}
   - component: {fileID: 2577585254963922476}
   - component: {fileID: 6118291909786656347}
+  - component: {fileID: 5372156526836339237}
+  - component: {fileID: 3138303473617609611}
+  - component: {fileID: 1570662716243063231}
+  - component: {fileID: 5327570948136352404}
+  - component: {fileID: 2261696387236186617}
   m_Layer: 20
   m_Name: PF Props Crate
   m_TagString: Untagged
@@ -252,6 +257,76 @@ Rigidbody2D:
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &6118291909786656347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2577585254963922480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c1c60da614e49da8fd800493c740b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordPrefab: {fileID: 0}
+  skullPrefab: {fileID: 0}
+--- !u!114 &5372156526836339237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2577585254963922480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c1c60da614e49da8fd800493c740b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordPrefab: {fileID: 0}
+  skullPrefab: {fileID: 0}
+--- !u!114 &3138303473617609611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2577585254963922480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c1c60da614e49da8fd800493c740b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordPrefab: {fileID: 0}
+  skullPrefab: {fileID: 0}
+--- !u!114 &1570662716243063231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2577585254963922480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c1c60da614e49da8fd800493c740b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordPrefab: {fileID: 0}
+  skullPrefab: {fileID: 0}
+--- !u!114 &5327570948136352404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2577585254963922480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c1c60da614e49da8fd800493c740b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordPrefab: {fileID: 0}
+  skullPrefab: {fileID: 0}
+--- !u!114 &2261696387236186617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
